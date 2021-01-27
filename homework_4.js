@@ -69,3 +69,55 @@ console.log(post.comments[1].text)*/
         })
 console.log(products)
 */
+/*Задание 4. Перед вами находится массив с продуктами в интернет-магазине. Вам нужно:
+    1. Получить все товары, у которых есть фотографии, можете использовать метод filter https://mzl.la/2qROQkT
+    2. Отсортируйте товары по цене (от низкой цены к высокой), можете использовать метод sort https://mzl.la/2Y79hbZ ,
+    как устроен sort можно посмотреть например здесь https://youtu.be/O2pusOp0gC0*/
+
+    // const products = [
+    //     {
+    //         id: 3,
+    //         price: 127,
+    //         photos: ["1.jpg", "2.jpg",]
+    //     },
+    //     {
+    //         id: 5,
+    //         price: 499,
+    //         photos: []
+    //     },
+    //     {
+    //         id: 10,
+    //         price: 26,
+    //         photos: ["3.jpg"]
+    //     },
+    //     {
+    //         id: 8,
+    //         price: 78,
+    //     },
+    //     ];
+
+//пункт 1 задания 4:
+// сначала фильрую объекты со свойством photo
+//     let resultFilterPhoto = products.filter(product => product.photos)
+//     console.log(resultFilterPhoto)
+// // вторым этапом фильтрую объекты с длинной массива photo более 1 (1 этап необходим, т.к. фильтр дает ошибку при фильтрации по длинне массива, в том случае, если свойства (массива) photo в объекте нет)
+//     let resultFilterPhotoInArr = resultFilterPhoto.filter(product => product.photos.length > 0)
+//     console.log(resultFilterPhotoInArr)
+
+//пункт 2 задания 4:
+//     products.sort(function (a, b){
+//         return a.price - b.price
+//     });
+//     console.log(products)
+
+// 5. (По желанию, т.к. такая особенность практически не используется) Вывести с помощью
+// цикла for числа от 0 до 9, НЕ используя тело цикла. То есть выглядеть должно примерно так:
+//     for(...){/* здесь пусто */}
+// Помните, что в первом, втором и третьем раздела цикла можно не только писать условия, или увеличивать
+// счетчик например на 1, допустимы любые выражения, например вызовы функций.
+// function functionNum(){
+//     return(i++);
+// }
+//
+// for(let i = 0; i < 10; functionNum());
+// console.log(i);
