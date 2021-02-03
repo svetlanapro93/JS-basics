@@ -19,7 +19,15 @@
     -->
 
     <script>
-        
+        let element1 = document.querySelectorAll('b');
+        console.log(element1);
+        element1.forEach(function (element){
+        if(!element.classList.contains('sign')){
+            element.classList.add('sign')
+        };
+        });
+        console.log(element1);
+
     </script>
 </body>
 </html>
