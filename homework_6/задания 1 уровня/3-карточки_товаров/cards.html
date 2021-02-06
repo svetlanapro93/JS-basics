@@ -44,7 +44,17 @@
     -->
 
     <script>
+    "use strict";
 
+    let product1 = document.querySelectorAll('div.product');
+    product1.forEach(function (product){
+        product.style.marginRight = "100px";
+        product.style.width = "80px";
+    });
+    let productName1 = document.querySelectorAll('div.productName');
+    productName1.forEach(function (name){
+        name.style.lineHeight = '24px';
+    });
     </script>
 </body>
 </html>

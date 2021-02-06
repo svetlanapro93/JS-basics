@@ -36,7 +36,22 @@
      -->
 
     <script>
-        
+        "use strict";
+
+        let formEl = document.querySelector('form');
+        let firstId = formEl.querySelector('input#first');
+        let secondId = formEl.querySelector('input#second');
+
+        formEl.addEventListener('submit', function (event){
+            if (firstId.value == ''){
+                firstId.style.borderColor = 'red';
+                event.preventDefault()
+            }
+            if (secondId.value == ''){
+                secondId.style.borderColor = 'red';
+                event.preventDefault()
+            }
+        });
     </script>
 </body>
 </html>
