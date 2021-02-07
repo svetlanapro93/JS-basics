@@ -31,24 +31,44 @@
     -->
 
     <script>
-        let firstStar = document.getElementById('first');
-        let secondStar = document.getElementById('second');
-        let thirdStar = document.getElementById('third');
-        let fourthStar = document.getElementById('fourth');
-        let fifthStar = document.getElementById('fifth');
+        // let firstStar = document.getElementById('first');
+        // let secondStar = document.getElementById('second');
+        // let thirdStar = document.getElementById('third');
+        // let fourthStar = document.getElementById('fourth');
+        // let fifthStar = document.getElementById('fifth');
 
         let goldenClass = 'golden';
 
-        firstStar.addEventListener('mouseover', function() {
-            if (!firstStar.classList.contains('goldenClass')) {
-                firstStar.classList.add(goldenClass);
+        // firstStar.addEventListener('mouseover', function() {
+        //     if (!firstStar.classList.contains('goldenClass')) {
+        //         firstStar.classList.add(goldenClass);
+        //     }
+        // });
+        //
+        // firstStar.addEventListener('mouseout', function() {
+        //     firstStar.classList.remove(goldenClass);
+        // });
+        function previousElementAdd(){
+            let element = this;
+            while (element){
+                element.classList.add(goldenClass);
+                element = element.previousElementSibling;
             }
-        });
+        }
 
-        firstStar.addEventListener('mouseout', function() {
-            firstStar.classList.remove(goldenClass);
-        });
+        function previousElementRemove(){
+            let element = this;
+            while (element){
+                element.classList.remove(goldenClass);
+                element = element.previousElementSibling;
+            }
+        }
 
+        let elementI = document.querySelectorAll('i');
+        elementI.forEach(function (element){
+            element.addEventListener('mouseover', previousElementAdd);
+            element.addEventListener('mouseout', previousElementRemove);
+        });
     </script>
 
 
