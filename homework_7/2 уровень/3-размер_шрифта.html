@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="range" min="20" max="100">
+    <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, expedita.
+    </div>
+    
+    <!-- 
+    Задание. Нужно чтобы при смещении ползунка в div менялся размер шрифта.
+    1. Получите ссылку на input.
+    2. Получите ссылку на div.
+    3. Input'у поставьте прослушивание события 'input';
+        3.1 У функции-обработчика определите параметр event.
+        3.2 Значение input'а читайте из event.target.value.
+    -->
+    
+
+    <script>
+        "use strict";
+
+        let inputElement = document.querySelector('input');
+        let inputDiv = document.querySelector('div');
+        inputElement.addEventListener('click', function (event){
+            console.log(event.target.value);
+            if (event.target.value >= 20 && event.target.value < 30){
+                inputDiv.style.fontSize= '10px'
+            }
+            if (event.target.value > 31 && event.target.value < 40){
+                inputDiv.style.fontSize = '15px'
+            }
+            if (event.target.value > 41 && event.target.value < 50){
+                inputDiv.style.fontSize = '20px'
+            }
+            if (event.target.value > 51 && event.target.value < 60){
+                inputDiv.style.fontSize = '30px'
+            }
+            if (event.target.value > 61 && event.target.value < 70){
+                inputDiv.style.fontSize = '35px'
+            }
+            if (event.target.value > 71 && event.target.value < 80){
+                inputDiv.style.fontSize = '40px'
+            }
+            if (event.target.value > 81 && event.target.value < 90){
+                inputDiv.style.fontSize = '45px'
+            }
+            if (event.target.value > 91 && event.target.value < 100){
+                inputDiv.style.fontSize = '50px'
+            }
+            if (event.target.value > 101 && event.target.value < 110){
+                inputDiv.style.fontSize = '55px'
+            }
+            if (event.target.value > 111){
+                inputDiv.style.fontSize = '60px'
+            }
+        });
+    </script>
+</body>
+</html>
