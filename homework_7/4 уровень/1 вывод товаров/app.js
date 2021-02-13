@@ -1,14 +1,5 @@
 "use strict";
-/* 
-Разметка товара:
 
-<div class="product">
-    <div>${здесь_название_товара}</div>
-    <img src="${здесь путь до картинки}" alt="">
-    <div>${здесь_цена}</div>
-    <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
-</div>
-*/
 
 const products = {
     phones: [
@@ -74,20 +65,24 @@ const products = {
         },
     ],
 };
-
-
-/**
- * Эта функция должна вызываться при клике по кнопкам.
- * @param {MouseEvent} event
- */
+let btn = document.querySelectorAll('button');
+let div = document.querySelector('div');
+    btn.forEach(function (element){
+        element.addEventListener('click', clickHandler);
+    });
+// /**
+//  * Эта функция должна вызываться при клике по кнопкам.
+//  * @param {MouseEvent} event
+//  */
 function clickHandler(event) {
     //вам нужно очищать содержимое .products
-    
-    //в showCategory надо передать строку с типом категории, тип берите
-    //из атрибута data-type у кнопки, по которой кликнули.
-    
+    div.innerHTML = showCategory(event.target.getAttribute('data-type'));
 }
 
+// //     //в showCategory надо передать строку с типом категории, тип берите
+// //     //из атрибута data-type у кнопки, по которой кликнули.
+//
+//
 /**
  * Функция берет товары (объекты) из соответствующего массива phones,
  * tablets или tv. Генерирует разметку, используя getProductMarkup
@@ -96,18 +91,37 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
-    
+    let markup = '';
+    for (let i = 0; i < products[category].length; i++) {
+        markup = markup + getProductMarkup(products[category][i]);
+    }
+    return markup
 }
-
-/**
- * @param {Object} product объект из массива phones, tablets или tv.
- * @param {number} product.id id продукта
- * @param {string} product.name название продукта
- * @param {string} product.price цена продукта
- * @param {string} product.imageUrl путь до картинки товара
- * @returns {string} html-разметка для товара по аналогии из комментария
- * в верху этого файла.
- */
+// /**
+//  * @param {Object} product объект из массива phones, tablets или tv.
+//  * @param {number} product.id id продукта
+//  * @param {string} product.name название продукта
+//  * @param {string} product.price цена продукта
+//  * @param {string} product.imageUrl путь до картинки товара
+//  * @returns {string} html-разметка для товара по аналогии из комментария
+//  * в верху этого файла.
+//  */
 function getProductMarkup(product) {
-
+    return `<div class="product">
+                <div>${product.name}</div>
+                <img src="${product.imageUrl}" alt="">
+                <div>${product.price}</div>
+                <a href="https://example.com/producs/${product.id}">Подробнее</a>
+            </div>`
 }
+
+// /*
+// Разметка товара:
+//
+// <div class="product">
+//     <div>${здесь_название_товара}</div>
+//     <img src="${здесь путь до картинки}" alt="">
+//     <div>${здесь_цена}</div>
+//     <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
+// </div>
+// */
